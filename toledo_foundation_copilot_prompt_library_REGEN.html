@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Greater Toledo Community Foundation | Copilot Prompt Library</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: 40px auto;
+      line-height: 1.5;
+      padding: 0 14px;
+    }
+    h1 { margin-bottom: 6px; }
+    .sub { color: #444; margin-top: 0; }
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 18px 0 22px;
+      padding: 12px;
+      background: #f3f6fb;
+      border: 1px solid #d7e1f2;
+      border-radius: 8px;
+    }
+    .toolbar label { font-size: 13px; color:#333; }
+    .toolbar input, .toolbar select {
+      padding: 8px 10px;
+      font-size: 14px;
+      border: 1px solid #c9c9c9;
+      border-radius: 6px;
+    }
+    .toolbar .count { margin-left: auto; font-size: 13px; color:#333; }
+    .prompt-card {
+      border: 1px solid #d0d0d0;
+      padding: 16px;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+    .card-header {
+      display:flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .card-header h3 { margin: 0 0 8px; font-size: 18px; }
+    pre {
+      white-space: pre-wrap;
+      background: #fff;
+      border: 1px solid #e6e6e6;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 8px 0 10px;
+      font-size: 14px;
+    }
+    button {
+      margin-top: 2px;
+      padding: 8px 14px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 6px;
+      border: 1px solid #888;
+      background: #ffffff;
+    }
+    button:hover { background:#f1f1f1; }
+    .copied {
+      color: #1a7f37;
+      font-size: 13px;
+      margin-left: 10px;
+    }
+    .badges { display:flex; gap:6px; flex-wrap: wrap; justify-content: flex-end; }
+    .badge {
+      display:inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid #cfcfcf;
+      background: #fff;
+      color: #222;
+    }
+    .badge-quick { background:#f2fff2; border-color:#bfe8bf; }
+    .badge-complex { background:#eef6ff; border-color:#b7d6ff; }
+    footer { margin-top: 26px; font-size: 12px; color:#444; }
+  </style>
+</head>
+<body>
+  <h1>Greater Toledo Community Foundation — Copilot Prompt Library</h1>
+  <p class="sub">Click <strong>Copy Prompt</strong>, then paste directly into Copilot. Use Search, Category, and Complexity to find the right prompt quickly.</p>
+
+  <div class="toolbar">
+    <div>
+      <label for="searchBox"><strong>Search</strong></label><br />
+      <input id="searchBox" type="text" placeholder="Search titles or prompt text…" oninput="filterPrompts()" />
+    </div>
+    <div>
+      <label for="categorySelect"><strong>Category</strong></label><br />
+      <select id="categorySelect" onchange="filterPrompts()">
+        <option value="All">All</option>
+        <option value="Board">Board</option>
+<option value="Communications">Communications</option>
+<option value="Donor Services">Donor Services</option>
+<option value="Grantmaking">Grantmaking</option>
+<option value="Impact &amp; Reporting">Impact &amp; Reporting</option>
+<option value="Initiatives">Initiatives</option>
+<option value="Internal">Internal</option>
+<option value="M365 Productivity">M365 Productivity</option>
+<option value="Nonprofit Support">Nonprofit Support</option>
+<option value="Operations">Operations</option>
+<option value="Scholarships">Scholarships</option>
+      </select>
+    </div>
+    <div>
+      <label for="complexitySelect"><strong>Complexity</strong></label><br />
+      <select id="complexitySelect" onchange="filterPrompts()">
+        <option value="All">All</option>
+        <option value="Complex">Complex</option>
+        <option value="Quick">Quick</option>
+      </select>
+    </div>
+    <div class="count" id="countLabel"></div>
+  </div>
+
+  
+<div class="prompt-card" data-category="Donor Services" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Donor Discovery Call Prep</h3>
+    <div class="badges"><span class="badge">Donor Services</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt1">You are my philanthropy advisor assistant. Based on these notes about a prospective donor, create: (1) 5 discovery questions, (2) 3 likely philanthropic interests to explore, (3) 2 next-step recommendations, and (4) a 60-second opening script. Notes: [paste notes]</pre>
+  <button onclick="copyPrompt('prompt1','status1')">Copy Prompt</button>
+  <span id="status1" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Donor Services" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Donor Meeting Recap Email (Internal)</h3>
+    <div class="badges"><span class="badge">Donor Services</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt2">Draft an internal recap email to our team summarizing a donor meeting. Include: attendees, donor goals, key quotes, opportunities, risks/concerns, promised follow-ups, and a timeline with owners. Use a professional, concise tone. Notes: [paste notes]</pre>
+  <button onclick="copyPrompt('prompt2','status2')">Copy Prompt</button>
+  <span id="status2" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Donor Services" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Thank-You Email After Gift</h3>
+    <div class="badges"><span class="badge">Donor Services</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt3">Draft a warm, professional thank-you email acknowledging a donor’s gift. Include: gratitude, purpose/impact language, next steps for fund setup or grant recommendations, and an invitation to talk. Gift details: [paste]</pre>
+  <button onclick="copyPrompt('prompt3','status3')">Copy Prompt</button>
+  <span id="status3" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Donor Services" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Donor Advised Fund Grant Recommendation Draft</h3>
+    <div class="badges"><span class="badge">Donor Services</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt4">Help me draft a donor-advised fund grant recommendation summary for internal review. Include: recommended grantee, purpose, amount, alignment to donor intent, due diligence checks completed, and any restrictions. Details: [paste]</pre>
+  <button onclick="copyPrompt('prompt4','status4')">Copy Prompt</button>
+  <span id="status4" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Donor Services" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Complex Gift Intake Checklist</h3>
+    <div class="badges"><span class="badge">Donor Services</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt5">Create a step-by-step intake checklist for evaluating a complex charitable gift (e.g., stock, real estate, closely held interest). Include required documents, internal stakeholders to notify, risk checks, timeline, and donor communications. Context: [paste]</pre>
+  <button onclick="copyPrompt('prompt5','status5')">Copy Prompt</button>
+  <span id="status5" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Donor Services" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Donor Persona (for Stewardship)</h3>
+    <div class="badges"><span class="badge">Donor Services</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt6">Create a donor persona to guide stewardship. Include: motivations, preferred communication style, privacy/public recognition preference, decision-making process, and engagement ideas for the next 6 months. Inputs: [paste]</pre>
+  <button onclick="copyPrompt('prompt6','status6')">Copy Prompt</button>
+  <span id="status6" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Donor Services" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Fund Agreement Talking Points</h3>
+    <div class="badges"><span class="badge">Donor Services</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt7">Write simple, donor-friendly talking points that explain: fund purpose, grant recommendation process, fees (if applicable), investment approach at a high level, and how the fund creates lasting impact. Keep it under 2 minutes spoken. Context: [paste]</pre>
+  <button onclick="copyPrompt('prompt7','status7')">Copy Prompt</button>
+  <span id="status7" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Donor Services" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Annual Donor Stewardship Plan</h3>
+    <div class="badges"><span class="badge">Donor Services</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt8">Build a 12-month stewardship plan for this donor/fund. Include touchpoints by quarter, content ideas, events/engagement, reporting moments, and who owns each action. Donor details: [paste]</pre>
+  <button onclick="copyPrompt('prompt8','status8')">Copy Prompt</button>
+  <span id="status8" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Donor Services" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Donor Recognition Copy Options</h3>
+    <div class="badges"><span class="badge">Donor Services</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt9">Generate 5 recognition copy options (short, medium, long) for acknowledging a donor. Provide versions for: website, newsletter, social media, event program, and private acknowledgment. Include placeholders for names and gift details. Context: [paste]</pre>
+  <button onclick="copyPrompt('prompt9','status9')">Copy Prompt</button>
+  <span id="status9" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Donor Services" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Donor Conversation: Values to Causes Mapping</h3>
+    <div class="badges"><span class="badge">Donor Services</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt10">From these donor statements, map values to giving opportunities. Output a table: Value | What it looks like in practice | Local giving areas to explore | Questions to confirm. Notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt10','status10')">Copy Prompt</button>
+  <span id="status10" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Donor Services" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Donor Concerns Response (Privacy)</h3>
+    <div class="badges"><span class="badge">Donor Services</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt11">Draft a response to a donor who wants assurance about privacy and how their information will be used. Keep it reassuring, specific, and policy-aligned. Include a short FAQ section. Situation: [paste]</pre>
+  <button onclick="copyPrompt('prompt11','status11')">Copy Prompt</button>
+  <span id="status11" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Donor Services" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Board/Trustee Brief for Major Gift</h3>
+    <div class="badges"><span class="badge">Donor Services</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt12">Create a 1-page brief for leadership about a potential major gift. Include: donor background, giving intent, estimated amount, timeline, strategic fit, risks, and a recommended approach. Notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt12','status12')">Copy Prompt</button>
+  <span id="status12" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Donor Services" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Gift Acceptance Summary (Plain Language)</h3>
+    <div class="badges"><span class="badge">Donor Services</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt13">Rewrite this gift acceptance language in plain English for a donor audience. Keep meaning, remove jargon, and add a short 'What this means for you' section. Text: [paste]</pre>
+  <button onclick="copyPrompt('prompt13','status13')">Copy Prompt</button>
+  <span id="status13" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Donor Services" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Donor Q&amp;A Builder</h3>
+    <div class="badges"><span class="badge">Donor Services</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt14">Create an FAQ for donors considering giving through a community foundation. Cover: ease, flexibility, legacy, tax timing, multiple causes, family involvement, and how we handle details. Keep answers under 80 words each.</pre>
+  <button onclick="copyPrompt('prompt14','status14')">Copy Prompt</button>
+  <span id="status14" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Grantmaking" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Grant Application Triage</h3>
+    <div class="badges"><span class="badge">Grantmaking</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt15">You are a grantmaking operations assistant. Triage this application summary and output: eligibility concerns, clarification questions, recommended review path, and a risk flag (low/med/high) with rationale. Application summary: [paste]</pre>
+  <button onclick="copyPrompt('prompt15','status15')">Copy Prompt</button>
+  <span id="status15" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Grantmaking" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Review Rubric Draft</h3>
+    <div class="badges"><span class="badge">Grantmaking</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt16">Create a grant review rubric (1–5 scale) with criteria and descriptors for: need, impact, feasibility, equity/access, sustainability, budget realism, and organizational capacity. Provide a short scoring guide.</pre>
+  <button onclick="copyPrompt('prompt16','status16')">Copy Prompt</button>
+  <span id="status16" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Grantmaking" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Panel/Committee Agenda</h3>
+    <div class="badges"><span class="badge">Grantmaking</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt17">Draft a 60-minute grant review committee agenda. Include timeboxes, decision points, discussion rules, and a closing recap. Context: number of proposals, deadlines, and any constraints: [paste]</pre>
+  <button onclick="copyPrompt('prompt17','status17')">Copy Prompt</button>
+  <span id="status17" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Grantmaking" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Decision Letter – Approved</h3>
+    <div class="badges"><span class="badge">Grantmaking</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt18">Draft an approval notification letter/email to a nonprofit. Include: congratulations, award amount, purpose, reporting expectations, payment timing, acknowledgment guidance, and contact info. Details: [paste]</pre>
+  <button onclick="copyPrompt('prompt18','status18')">Copy Prompt</button>
+  <span id="status18" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Grantmaking" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Decision Letter – Declined (Kind)</h3>
+    <div class="badges"><span class="badge">Grantmaking</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt19">Draft a respectful decline letter/email. Include: gratitude, brief non-specific rationale, encouragement, optional resources, and invitation to reapply if appropriate. Details: [paste]</pre>
+  <button onclick="copyPrompt('prompt19','status19')">Copy Prompt</button>
+  <span id="status19" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Grantmaking" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Due Diligence Checklist</h3>
+    <div class="badges"><span class="badge">Grantmaking</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt20">Create a due diligence checklist for evaluating a nonprofit grant request. Include governance, financial health, program evidence, compliance, reputational risk, and documentation needed. Also include 'red flags' examples.</pre>
+  <button onclick="copyPrompt('prompt20','status20')">Copy Prompt</button>
+  <span id="status20" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Grantmaking" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Grant Agreement Summary</h3>
+    <div class="badges"><span class="badge">Grantmaking</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt21">Summarize this grant agreement into: key obligations, reporting dates, payment schedule, permitted uses, and what triggers a change request. Output in bullet points for internal use. Agreement text: [paste]</pre>
+  <button onclick="copyPrompt('prompt21','status21')">Copy Prompt</button>
+  <span id="status21" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Grantmaking" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Site Visit Questions</h3>
+    <div class="badges"><span class="badge">Grantmaking</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt22">Generate 12 site visit questions for a nonprofit program funded by us. Group by: program delivery, outcomes, staffing, partnerships, financial sustainability, and beneficiary feedback.</pre>
+  <button onclick="copyPrompt('prompt22','status22')">Copy Prompt</button>
+  <span id="status22" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Grantmaking" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Board Packet: Grant Recommendations</h3>
+    <div class="badges"><span class="badge">Grantmaking</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt23">Create a board-ready summary table for these recommended grants: Organization | Amount | Purpose | Alignment | Key risks | Staff recommendation. Data: [paste]</pre>
+  <button onclick="copyPrompt('prompt23','status23')">Copy Prompt</button>
+  <span id="status23" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Grantmaking" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Grant Budget Review</h3>
+    <div class="badges"><span class="badge">Grantmaking</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt24">Analyze this proposed grant budget. Flag inconsistencies, missing line items, unrealistic assumptions, and questions to ask the applicant. Then provide a short 'budget reasonableness' assessment. Budget: [paste]</pre>
+  <button onclick="copyPrompt('prompt24','status24')">Copy Prompt</button>
+  <span id="status24" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Grantmaking" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Impact Metrics Suggestions</h3>
+    <div class="badges"><span class="badge">Grantmaking</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt25">Suggest practical, lightweight outcome metrics for this program (5–8 metrics). Include definitions and how the nonprofit can collect them without heavy burden. Program description: [paste]</pre>
+  <button onclick="copyPrompt('prompt25','status25')">Copy Prompt</button>
+  <span id="status25" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Grantmaking" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Grant Closeout Summary</h3>
+    <div class="badges"><span class="badge">Grantmaking</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt26">Draft a closeout summary for internal records. Include: goals, activities, outputs/outcomes, lessons learned, notable quotes, and next funding recommendation. Report notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt26','status26')">Copy Prompt</button>
+  <span id="status26" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Grantmaking" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Grant Portfolio Snapshot</h3>
+    <div class="badges"><span class="badge">Grantmaking</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt27">Create an executive snapshot of our current grant portfolio from this dataset. Provide: top categories, average grant size, geographic notes (if provided), and 5 insights. Data: [paste]</pre>
+  <button onclick="copyPrompt('prompt27','status27')">Copy Prompt</button>
+  <span id="status27" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Grantmaking" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Community Needs Themes (from notes)</h3>
+    <div class="badges"><span class="badge">Grantmaking</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt28">From these community listening notes, extract 8–12 themes, representative quotes, and suggested action opportunities for the foundation. Notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt28','status28')">Copy Prompt</button>
+  <span id="status28" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Grantmaking" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Grantmaking Process SOP</h3>
+    <div class="badges"><span class="badge">Grantmaking</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt29">Write a simple SOP for our grantmaking workflow from intake to closeout. Include roles, handoffs, decision gates, and a timeline. Use headings and numbered steps.</pre>
+  <button onclick="copyPrompt('prompt29','status29')">Copy Prompt</button>
+  <span id="status29" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Grantmaking" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Grantee Check-In Email</h3>
+    <div class="badges"><span class="badge">Grantmaking</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt30">Draft a check-in email to a grantee midway through the grant period. Ask about progress, challenges, support needed, and remind them of reporting dates. Details: [paste]</pre>
+  <button onclick="copyPrompt('prompt30','status30')">Copy Prompt</button>
+  <span id="status30" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Grantmaking" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Risk Log for Grant Cycle</h3>
+    <div class="badges"><span class="badge">Grantmaking</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt31">Create a risk log for this grant cycle. Output a table with: risk, likelihood, impact, mitigation, owner, review date. Context: [paste]</pre>
+  <button onclick="copyPrompt('prompt31','status31')">Copy Prompt</button>
+  <span id="status31" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Grantmaking" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Grant Story Capture Interview</h3>
+    <div class="badges"><span class="badge">Grantmaking</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt32">Create an interview guide to capture a grantee story for impact communications. Include consent reminder, 10 questions, and 3 follow-up prompts. Program: [paste]</pre>
+  <button onclick="copyPrompt('prompt32','status32')">Copy Prompt</button>
+  <span id="status32" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Scholarships" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Scholarship Application Scoring Rubric</h3>
+    <div class="badges"><span class="badge">Scholarships</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt33">Create a scoring rubric for scholarship applications. Criteria should include: eligibility, academics (if relevant), financial need (if applicable), leadership/service, essay quality, and alignment to donor intent. Provide scoring guidance.</pre>
+  <button onclick="copyPrompt('prompt33','status33')">Copy Prompt</button>
+  <span id="status33" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Scholarships" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Scholarship Reviewer Instructions</h3>
+    <div class="badges"><span class="badge">Scholarships</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt34">Draft clear instructions for volunteer reviewers. Include: confidentiality expectations, how to score, what to avoid (bias), how to handle conflicts of interest, and deadlines.</pre>
+  <button onclick="copyPrompt('prompt34','status34')">Copy Prompt</button>
+  <span id="status34" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Scholarships" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Scholarship Decision Email – Award</h3>
+    <div class="badges"><span class="badge">Scholarships</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt35">Draft an award email to a student. Include: congratulations, next steps, documentation needed, deadline reminders, and a warm tone. Details: [paste]</pre>
+  <button onclick="copyPrompt('prompt35','status35')">Copy Prompt</button>
+  <span id="status35" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Scholarships" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Scholarship Decision Email – Not Selected</h3>
+    <div class="badges"><span class="badge">Scholarships</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt36">Draft a compassionate 'not selected' email. Encourage future applications, include resources, and keep it brief and respectful. Details: [paste]</pre>
+  <button onclick="copyPrompt('prompt36','status36')">Copy Prompt</button>
+  <span id="status36" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Scholarships" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Universal Application FAQ</h3>
+    <div class="badges"><span class="badge">Scholarships</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt37">Create an FAQ for students applying through a universal scholarship application. Cover: deadlines, documents, tips for essays, recommendations, and troubleshooting. Keep answers concise.</pre>
+  <button onclick="copyPrompt('prompt37','status37')">Copy Prompt</button>
+  <span id="status37" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Scholarships" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Scholarship Committee Agenda</h3>
+    <div class="badges"><span class="badge">Scholarships</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt38">Draft a 45-minute scholarship selection committee agenda. Include timeboxes, conflict-of-interest check, scoring alignment, final decisions, and documentation reminders.</pre>
+  <button onclick="copyPrompt('prompt38','status38')">Copy Prompt</button>
+  <span id="status38" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Scholarships" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Scholarship Data Quality Check</h3>
+    <div class="badges"><span class="badge">Scholarships</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt39">Review this scholarship applicant spreadsheet data and identify: missing fields, inconsistencies, duplicates, and recommended cleaning steps. Data: [paste]</pre>
+  <button onclick="copyPrompt('prompt39','status39')">Copy Prompt</button>
+  <span id="status39" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Scholarships" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Student Thank-You Note Guidance</h3>
+    <div class="badges"><span class="badge">Scholarships</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt40">Write guidance for scholarship recipients on how to write a meaningful thank-you note to donors. Provide a structure, examples of what to share, and what to avoid.</pre>
+  <button onclick="copyPrompt('prompt40','status40')">Copy Prompt</button>
+  <span id="status40" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Scholarships" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Scholarship Recipient Spotlight Draft</h3>
+    <div class="badges"><span class="badge">Scholarships</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt41">Draft a short spotlight story about a scholarship recipient for a newsletter. Include: background, goals, gratitude, and how the scholarship helps. Keep it 200–250 words. Notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt41','status41')">Copy Prompt</button>
+  <span id="status41" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Scholarships" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Scholarship Eligibility Checker</h3>
+    <div class="badges"><span class="badge">Scholarships</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt42">From the scholarship criteria below, create a plain-language checklist a student can use to self-check eligibility. Criteria: [paste]</pre>
+  <button onclick="copyPrompt('prompt42','status42')">Copy Prompt</button>
+  <span id="status42" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Scholarships" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Scholarship Renewal Reminder Email</h3>
+    <div class="badges"><span class="badge">Scholarships</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt43">Draft a renewal reminder email for returning scholarship recipients. Include: requirements, documents, deadlines, and contact info. Details: [paste]</pre>
+  <button onclick="copyPrompt('prompt43','status43')">Copy Prompt</button>
+  <span id="status43" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Scholarships" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Reviewer Bias Guardrails</h3>
+    <div class="badges"><span class="badge">Scholarships</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt44">Create a one-page bias and fairness checklist for scholarship reviewers. Include common bias traps and neutral evaluation tips.</pre>
+  <button onclick="copyPrompt('prompt44','status44')">Copy Prompt</button>
+  <span id="status44" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Scholarships" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Scholarship Award Packet Checklist</h3>
+    <div class="badges"><span class="badge">Scholarships</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt45">Create a checklist of everything we need to finalize a scholarship award (student documents, school verification, payment steps, communications). Include roles and due dates.</pre>
+  <button onclick="copyPrompt('prompt45','status45')">Copy Prompt</button>
+  <span id="status45" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Scholarships" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Student Outreach Social Post Set</h3>
+    <div class="badges"><span class="badge">Scholarships</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt46">Write 6 social posts encouraging students to apply for scholarships. Include one post each for: deadline reminder, tips, eligibility, encouragement, FAQ link, and final day. Keep them platform-neutral.</pre>
+  <button onclick="copyPrompt('prompt46','status46')">Copy Prompt</button>
+  <span id="status46" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Nonprofit Support" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Nonprofit Capacity Assessment</h3>
+    <div class="badges"><span class="badge">Nonprofit Support</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt47">Create a lightweight capacity assessment for a nonprofit. Include questions in: leadership, finance, fundraising, operations, programs, evaluation, and tech. Output as a fillable checklist.</pre>
+  <button onclick="copyPrompt('prompt47','status47')">Copy Prompt</button>
+  <span id="status47" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Nonprofit Support" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Workshop Outline: Board Governance Basics</h3>
+    <div class="badges"><span class="badge">Nonprofit Support</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt48">Draft a 60-minute workshop outline for nonprofit leaders on board governance basics. Include learning objectives, activities, and take-home resources.</pre>
+  <button onclick="copyPrompt('prompt48','status48')">Copy Prompt</button>
+  <span id="status48" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Nonprofit Support" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Nonprofit Coaching Session Agenda</h3>
+    <div class="badges"><span class="badge">Nonprofit Support</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt49">Create a 45-minute coaching session agenda for a nonprofit leader. Include check-in, goals, obstacles, decision points, and next steps. Context: [paste]</pre>
+  <button onclick="copyPrompt('prompt49','status49')">Copy Prompt</button>
+  <span id="status49" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Nonprofit Support" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Grant Readiness Checklist</h3>
+    <div class="badges"><span class="badge">Nonprofit Support</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt50">Create a grant readiness checklist for nonprofits applying to our programs. Include organizational documents, narratives, budgets, outcomes, and compliance.</pre>
+  <button onclick="copyPrompt('prompt50','status50')">Copy Prompt</button>
+  <span id="status50" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Nonprofit Support" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Nonprofit Email: Feedback on Proposal</h3>
+    <div class="badges"><span class="badge">Nonprofit Support</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt51">Draft a constructive email giving proposal feedback to a nonprofit (even if declined). Be specific, encouraging, and actionable. Notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt51','status51')">Copy Prompt</button>
+  <span id="status51" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Nonprofit Support" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Resource List Builder</h3>
+    <div class="badges"><span class="badge">Nonprofit Support</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt52">Create a resource list for nonprofits based on these needs (fundraising, finance, board, evaluation, communications). Provide 10 resource ideas with brief descriptions. Needs: [paste]</pre>
+  <button onclick="copyPrompt('prompt52','status52')">Copy Prompt</button>
+  <span id="status52" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Nonprofit Support" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Cohort Program Plan</h3>
+    <div class="badges"><span class="badge">Nonprofit Support</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt53">Design a 6-session cohort program for nonprofit leaders focused on capacity and sustainability. Include session themes, outcomes, activities, and homework.</pre>
+  <button onclick="copyPrompt('prompt53','status53')">Copy Prompt</button>
+  <span id="status53" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Nonprofit Support" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Nonprofit Survey Questions</h3>
+    <div class="badges"><span class="badge">Nonprofit Support</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt54">Draft a short survey (10 questions) to understand nonprofit training needs. Include multiple-choice and 2 open-ended questions.</pre>
+  <button onclick="copyPrompt('prompt54','status54')">Copy Prompt</button>
+  <span id="status54" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Initiatives" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Convening Agenda Builder</h3>
+    <div class="badges"><span class="badge">Initiatives</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt55">Draft a 90-minute community convening agenda on this topic. Include: opening framing, small-group questions, reporting out, and next-step commitments. Topic and audience: [paste]</pre>
+  <button onclick="copyPrompt('prompt55','status55')">Copy Prompt</button>
+  <span id="status55" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Initiatives" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Stakeholder Map</h3>
+    <div class="badges"><span class="badge">Initiatives</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt56">Create a stakeholder map for this initiative. Output categories: nonprofits, government, business, education, residents, funders. Include how to engage each and potential risks. Context: [paste]</pre>
+  <button onclick="copyPrompt('prompt56','status56')">Copy Prompt</button>
+  <span id="status56" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Initiatives" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Facilitation Questions (Equity &amp; Access)</h3>
+    <div class="badges"><span class="badge">Initiatives</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt57">Generate inclusive facilitation questions that invite diverse perspectives without leading. Provide 12 questions and 6 follow-up probes. Topic: [paste]</pre>
+  <button onclick="copyPrompt('prompt57','status57')">Copy Prompt</button>
+  <span id="status57" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Initiatives" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Meeting Notes to Action Plan</h3>
+    <div class="badges"><span class="badge">Initiatives</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt58">Convert these meeting notes into an action plan with: goals, workstreams, actions, owners, due dates, and success measures. Notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt58','status58')">Copy Prompt</button>
+  <span id="status58" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Initiatives" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Partnership MOU Draft (Outline)</h3>
+    <div class="badges"><span class="badge">Initiatives</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt59">Create an outline for a partnership MOU for a community initiative. Include: purpose, roles, governance, communications, data sharing, funding, timeline, and termination. Context: [paste]</pre>
+  <button onclick="copyPrompt('prompt59','status59')">Copy Prompt</button>
+  <span id="status59" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Initiatives" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Community Listening Summary</h3>
+    <div class="badges"><span class="badge">Initiatives</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt60">Summarize these listening session notes for a public-facing report. Include themes, what we heard, what we’re doing next, and a short methodology note. Notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt60','status60')">Copy Prompt</button>
+  <span id="status60" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Initiatives" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Initiative One-Pager</h3>
+    <div class="badges"><span class="badge">Initiatives</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt61">Draft a one-page overview of this initiative for partners. Include: problem statement, goals, approach, who’s involved, timeline, and how to participate. Details: [paste]</pre>
+  <button onclick="copyPrompt('prompt61','status61')">Copy Prompt</button>
+  <span id="status61" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Initiatives" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Volunteer Recruitment Message</h3>
+    <div class="badges"><span class="badge">Initiatives</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt62">Write a volunteer recruitment message for this initiative. Include: why it matters, what volunteers do, time commitment, and sign-up call to action. Details: [paste]</pre>
+  <button onclick="copyPrompt('prompt62','status62')">Copy Prompt</button>
+  <span id="status62" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Communications" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Press Release Draft</h3>
+    <div class="badges"><span class="badge">Communications</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt63">Draft a press release announcing a grant initiative or funding milestone. Include: headline, lead, quotes (placeholders), key facts, boilerplate, and media contact. Details: [paste]</pre>
+  <button onclick="copyPrompt('prompt63','status63')">Copy Prompt</button>
+  <span id="status63" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Communications" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Newsletter Story Rewrite</h3>
+    <div class="badges"><span class="badge">Communications</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt64">Rewrite this story for our newsletter in a warm, accessible tone. Keep it under 350 words, include a short headline and 3 bullet highlights. Text: [paste]</pre>
+  <button onclick="copyPrompt('prompt64','status64')">Copy Prompt</button>
+  <span id="status64" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Communications" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Social Media Content Pack</h3>
+    <div class="badges"><span class="badge">Communications</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt65">Create a 2-week social media content pack (10 posts) about our impact. Mix formats: stats, stories, call-to-action, behind-the-scenes, partner spotlight. Provide post text and suggested image ideas.</pre>
+  <button onclick="copyPrompt('prompt65','status65')">Copy Prompt</button>
+  <span id="status65" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Communications" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Website Copy: Why Give</h3>
+    <div class="badges"><span class="badge">Communications</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt66">Draft webpage copy explaining why donors give through a community foundation. Include sections: Simple yet powerful, local expertise, flexibility, legacy, and how to get started. Keep it donor-friendly and concise.</pre>
+  <button onclick="copyPrompt('prompt66','status66')">Copy Prompt</button>
+  <span id="status66" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Communications" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Grant Announcement Talking Points</h3>
+    <div class="badges"><span class="badge">Communications</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt67">Create talking points for staff announcing new grants/awards. Include: what we funded, why, what’s next, and how partners can engage. Details: [paste]</pre>
+  <button onclick="copyPrompt('prompt67','status67')">Copy Prompt</button>
+  <span id="status67" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Communications" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Brand Tone Guide (Short)</h3>
+    <div class="badges"><span class="badge">Communications</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt68">Create a short tone guide for our communications: 6 tone principles, do/don’t examples, and a sample paragraph. Audience: donors, nonprofits, community.</pre>
+  <button onclick="copyPrompt('prompt68','status68')">Copy Prompt</button>
+  <span id="status68" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Communications" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Event Program Copy</h3>
+    <div class="badges"><span class="badge">Communications</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt69">Draft copy for an event program page: welcome message, agenda overview, sponsor thanks, and closing gratitude. Event details: [paste]</pre>
+  <button onclick="copyPrompt('prompt69','status69')">Copy Prompt</button>
+  <span id="status69" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Communications" data-complexity="Quick">
+  <div class="card-header">
+    <h3>FAQ Builder for New Initiative</h3>
+    <div class="badges"><span class="badge">Communications</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt70">Create a public FAQ for this initiative: what it is, who it serves, how it’s funded, timelines, eligibility (if relevant), and contact. Details: [paste]</pre>
+  <button onclick="copyPrompt('prompt70','status70')">Copy Prompt</button>
+  <span id="status70" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Operations" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Policy Summary (Internal)</h3>
+    <div class="badges"><span class="badge">Operations</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt71">Summarize this policy for staff into: what changed, who it impacts, required actions, and key deadlines. Provide a 5-bullet quick reference. Policy text: [paste]</pre>
+  <button onclick="copyPrompt('prompt71','status71')">Copy Prompt</button>
+  <span id="status71" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Operations" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Privacy Notice Q&amp;A</h3>
+    <div class="badges"><span class="badge">Operations</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt72">Create a Q&amp;A for staff on how we handle website forms, donations, newsletters, cookies, and data retention. Keep answers practical and aligned to policy. Context: [paste]</pre>
+  <button onclick="copyPrompt('prompt72','status72')">Copy Prompt</button>
+  <span id="status72" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Operations" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Incident Response Draft</h3>
+    <div class="badges"><span class="badge">Operations</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt73">Draft an internal response plan for a suspected data incident. Include: immediate steps, communications, documentation, escalation path, and lessons learned review. Situation: [paste]</pre>
+  <button onclick="copyPrompt('prompt73','status73')">Copy Prompt</button>
+  <span id="status73" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Operations" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Budget Variance Explanation</h3>
+    <div class="badges"><span class="badge">Operations</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt74">Draft a clear explanation of these budget variances for leadership. Include: what happened, why, impact, corrective actions, and next review date. Numbers: [paste]</pre>
+  <button onclick="copyPrompt('prompt74','status74')">Copy Prompt</button>
+  <span id="status74" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Operations" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Monthly Operations Update</h3>
+    <div class="badges"><span class="badge">Operations</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt75">Create a monthly operations update template for leadership. Include: key metrics, wins, risks, staffing notes, major projects, and next-month priorities.</pre>
+  <button onclick="copyPrompt('prompt75','status75')">Copy Prompt</button>
+  <span id="status75" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Operations" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Procurement Comparison</h3>
+    <div class="badges"><span class="badge">Operations</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt76">Compare these vendor options and recommend one based on criteria: cost, risk, support, fit, timeline. Output a decision matrix and short narrative. Vendor details: [paste]</pre>
+  <button onclick="copyPrompt('prompt76','status76')">Copy Prompt</button>
+  <span id="status76" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Operations" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Internal Controls Checklist</h3>
+    <div class="badges"><span class="badge">Operations</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt77">Create a checklist of internal controls for handling donations and disbursements. Include separation of duties, approvals, documentation, and audit trail.</pre>
+  <button onclick="copyPrompt('prompt77','status77')">Copy Prompt</button>
+  <span id="status77" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Board" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Board Agenda Draft</h3>
+    <div class="badges"><span class="badge">Board</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt78">Draft a board meeting agenda with timeboxes. Include: consent agenda, finance, grant approvals, strategic initiatives, and executive session placeholder. Context: [paste]</pre>
+  <button onclick="copyPrompt('prompt78','status78')">Copy Prompt</button>
+  <span id="status78" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Board" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Board Packet Executive Summary</h3>
+    <div class="badges"><span class="badge">Board</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt79">Create an executive summary (max 1 page) for this board packet. Highlight decisions needed, key metrics, notable risks, and recommended actions. Packet content: [paste]</pre>
+  <button onclick="copyPrompt('prompt79','status79')">Copy Prompt</button>
+  <span id="status79" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Board" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Trustee Briefing Note</h3>
+    <div class="badges"><span class="badge">Board</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt80">Draft a briefing note for trustees on this topic. Include: background, why it matters now, options, pros/cons, and recommendation. Topic: [paste]</pre>
+  <button onclick="copyPrompt('prompt80','status80')">Copy Prompt</button>
+  <span id="status80" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Board" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Committee Charter</h3>
+    <div class="badges"><span class="badge">Board</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt81">Draft a committee charter for a board committee. Include: purpose, scope, membership, meeting cadence, decision rights, and reporting to the board.</pre>
+  <button onclick="copyPrompt('prompt81','status81')">Copy Prompt</button>
+  <span id="status81" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Board" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Executive Talking Points</h3>
+    <div class="badges"><span class="badge">Board</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt82">Create 2-minute talking points for the CEO/president for this event or meeting. Include: key message, proof points, and a strong closing. Context: [paste]</pre>
+  <button onclick="copyPrompt('prompt82','status82')">Copy Prompt</button>
+  <span id="status82" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Board" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Board Follow-Up Email</h3>
+    <div class="badges"><span class="badge">Board</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt83">Draft a follow-up email after a board meeting. Include: gratitude, key decisions, action items with owners, and next meeting reminders. Notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt83','status83')">Copy Prompt</button>
+  <span id="status83" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Internal" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Onboarding Checklist (Role-Based)</h3>
+    <div class="badges"><span class="badge">Internal</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt84">Create a 30-day onboarding checklist for this role at our foundation. Include systems access, key people, recurring meetings, required trainings, and early wins. Role: [paste]</pre>
+  <button onclick="copyPrompt('prompt84','status84')">Copy Prompt</button>
+  <span id="status84" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Internal" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Internal Announcement Draft</h3>
+    <div class="badges"><span class="badge">Internal</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt85">Draft an internal Teams announcement about this update. Include: what’s changing, why, who’s impacted, what to do, and where to get help. Details: [paste]</pre>
+  <button onclick="copyPrompt('prompt85','status85')">Copy Prompt</button>
+  <span id="status85" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Internal" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Training Session Outline</h3>
+    <div class="badges"><span class="badge">Internal</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt86">Create a 45-minute training outline for staff on this process/tool. Include objectives, agenda, hands-on exercise, and a quick knowledge check. Topic: [paste]</pre>
+  <button onclick="copyPrompt('prompt86','status86')">Copy Prompt</button>
+  <span id="status86" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Internal" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Staff Pulse Survey</h3>
+    <div class="badges"><span class="badge">Internal</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt87">Draft a short staff pulse survey (8 questions) about workload, clarity, collaboration, and support needs. Include a mix of scales and open-ended.</pre>
+  <button onclick="copyPrompt('prompt87','status87')">Copy Prompt</button>
+  <span id="status87" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Impact &amp; Reporting" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Impact Report Outline</h3>
+    <div class="badges"><span class="badge">Impact &amp; Reporting</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt88">Draft an outline for an annual impact report. Include: executive summary, community priorities, grant highlights, scholarship highlights, donor stories, financial stewardship, and next year outlook.</pre>
+  <button onclick="copyPrompt('prompt88','status88')">Copy Prompt</button>
+  <span id="status88" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Impact &amp; Reporting" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Excel Analysis Prompt</h3>
+    <div class="badges"><span class="badge">Impact &amp; Reporting</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt89">In Excel, help me analyze this table. Identify trends, outliers, and top drivers. Suggest 3 charts and write the steps to create them. Data description: [paste]</pre>
+  <button onclick="copyPrompt('prompt89','status89')">Copy Prompt</button>
+  <span id="status89" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Impact &amp; Reporting" data-complexity="Complex">
+  <div class="card-header">
+    <h3>KPI Definitions</h3>
+    <div class="badges"><span class="badge">Impact &amp; Reporting</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt90">Define KPIs for our foundation across: dollars invested annually, grants processed, time-to-decision, scholarship awards, donor satisfaction, and operational efficiency. Provide formulas and data sources.</pre>
+  <button onclick="copyPrompt('prompt90','status90')">Copy Prompt</button>
+  <span id="status90" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Impact &amp; Reporting" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Narrative from Dashboard</h3>
+    <div class="badges"><span class="badge">Impact &amp; Reporting</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt91">Turn these dashboard metrics into a narrative update for a public audience. Keep it under 200 words and highlight what changed since last period. Metrics: [paste]</pre>
+  <button onclick="copyPrompt('prompt91','status91')">Copy Prompt</button>
+  <span id="status91" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Impact &amp; Reporting" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Grantmaking Equity Lens</h3>
+    <div class="badges"><span class="badge">Impact &amp; Reporting</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt92">Create an equity lens checklist for reviewing grants. Include questions about access, representation, barriers, community voice, and unintended consequences.</pre>
+  <button onclick="copyPrompt('prompt92','status92')">Copy Prompt</button>
+  <span id="status92" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Impact &amp; Reporting" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Survey Results Summary</h3>
+    <div class="badges"><span class="badge">Impact &amp; Reporting</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt93">Summarize these survey results into key findings, notable quotes, and 3 recommendations. Provide a short executive summary and a detailed section. Results: [paste]</pre>
+  <button onclick="copyPrompt('prompt93','status93')">Copy Prompt</button>
+  <span id="status93" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="Impact &amp; Reporting" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Data Dictionary Starter</h3>
+    <div class="badges"><span class="badge">Impact &amp; Reporting</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt94">Create a starter data dictionary for our grants/scholarships tracking spreadsheet. Include column name, definition, allowed values, and owner.</pre>
+  <button onclick="copyPrompt('prompt94','status94')">Copy Prompt</button>
+  <span id="status94" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="M365 Productivity" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Teams Channel Weekly Digest</h3>
+    <div class="badges"><span class="badge">M365 Productivity</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt95">Summarize the last 7 days of messages in this Teams channel into: Key Updates, Decisions, Risks, and Next Actions (with owners). Keep it under 200 words.</pre>
+  <button onclick="copyPrompt('prompt95','status95')">Copy Prompt</button>
+  <span id="status95" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="M365 Productivity" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Meeting Recap to Tasks</h3>
+    <div class="badges"><span class="badge">M365 Productivity</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt96">From this meeting transcript/recap, list decisions and create an action-item list with owner + due date suggestions. Then draft a follow-up Teams post. Transcript: [paste]</pre>
+  <button onclick="copyPrompt('prompt96','status96')">Copy Prompt</button>
+  <span id="status96" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="M365 Productivity" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Rewrite for Accessibility</h3>
+    <div class="badges"><span class="badge">M365 Productivity</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt97">Rewrite this announcement to be accessible: short sentences, clear headings, meaningful links, inclusive language, and a 6th–8th grade reading level. Text: [paste]</pre>
+  <button onclick="copyPrompt('prompt97','status97')">Copy Prompt</button>
+  <span id="status97" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="M365 Productivity" data-complexity="Complex">
+  <div class="card-header">
+    <h3>PowerPoint Storyboard</h3>
+    <div class="badges"><span class="badge">M365 Productivity</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt98">Create a slide-by-slide storyboard for a 10-slide deck about our community impact. For each slide: title, key bullets, suggested visual, and speaker notes (2–3 sentences). Inputs: [paste]</pre>
+  <button onclick="copyPrompt('prompt98','status98')">Copy Prompt</button>
+  <span id="status98" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="M365 Productivity" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Word Document Cleanup</h3>
+    <div class="badges"><span class="badge">M365 Productivity</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt99">Clean up this Word document: add headings, improve clarity, remove repetition, and create a 5-bullet executive summary at the top. Text: [paste]</pre>
+  <button onclick="copyPrompt('prompt99','status99')">Copy Prompt</button>
+  <span id="status99" class="copied"></span>
+</div>
+
+
+<div class="prompt-card" data-category="M365 Productivity" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Excel Grant Tracker Improvements</h3>
+    <div class="badges"><span class="badge">M365 Productivity</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt100">Review this grant tracker layout and propose improvements: columns to add, validation rules, conditional formatting ideas, and pivots for reporting. Describe steps. Current columns: [paste]</pre>
+  <button onclick="copyPrompt('prompt100','status100')">Copy Prompt</button>
+  <span id="status100" class="copied"></span>
+</div>
+
+
+  <footer>
+    Tip: Replace placeholders like <strong>[paste]</strong> with your content. If you are working with sensitive information, follow your organization’s privacy and data-handling policies.
+  </footer>
+
+  <script>
+    function copyPrompt(promptId, statusId) {
+      const text = document.getElementById(promptId).innerText;
+      navigator.clipboard.writeText(text);
+      const el = document.getElementById(statusId);
+      el.innerText = "Copied!";
+      setTimeout(() => { el.innerText = ""; }, 1500);
+    }
+
+    function filterPrompts() {
+      const q = (document.getElementById('searchBox').value || '').toLowerCase();
+      const cat = document.getElementById('categorySelect').value;
+      const comp = document.getElementById('complexitySelect').value;
+      const cards = Array.from(document.querySelectorAll('.prompt-card'));
+      let shown = 0;
+
+      cards.forEach(card => {
+        const c = card.getAttribute('data-category');
+        const k = card.getAttribute('data-complexity');
+        const text = card.innerText.toLowerCase();
+        const matchQ = !q || text.includes(q);
+        const matchC = (cat === 'All') || (c === cat);
+        const matchK = (comp === 'All') || (k === comp);
+        const show = matchQ && matchC && matchK;
+        card.style.display = show ? '' : 'none';
+        if (show) shown += 1;
+      });
+
+      document.getElementById('countLabel').innerText = shown + " shown / " + cards.length + " total";
+    }
+
+    // Initialize count
+    filterPrompts();
+  </script>
+</body>
+</html>
