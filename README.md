@@ -1,6 +1,3 @@
-# gtf
-Greater Toledo Foundation Files
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,7 +17,7 @@ Greater Toledo Foundation Files
   <p>Use the links below to access the resources:</p>
   <ul>
     <li><a href="https://kimberlyandcoach.github.io/gtf/DayInTheLife.html">Day In The Life Scenario</a></li>
-    <li><a href="Phttps://kimberlyandcoach.github.io/gtf/challenge.html">Challenge</a></li>
+    <li><a href="https://kimberlyandcoach.github.io/gtf/challenge.html">Challenge</a></li>
   </ul>
 </body>
 </html>
